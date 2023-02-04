@@ -20,6 +20,26 @@
     border: 1px solid black;
 }
 
-.quadro-1, .quadro-2, .quadro-3{
+.quadro:nth-child(1),
+.quadro:nth-child(2),
+.quadro:nth-child(3){
     border-top: none;
+}
+
+.quadro:nth-child(1),
+.quadro:nth-child(4),
+.quadro:nth-child(7){
+    border-left: none;
+}
+
+.quadro:nth-child(7),
+.quadro:nth-child(8),
+.quadro:nth-child(9){
+    border-bottom: none;
+}
+
+.quadro:nth-child(3),
+.quadro:nth-child(6),
+.quadro:nth-child(9){
+    border-right: none;
 }
