@@ -1,0 +1,25 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.divpai{
+    width: 100;
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(3, auto);
+}
+
+.quadro{
+    height: 100px;
+    width: 100px;
+    border: 1px solid black;
+}
+
+.quadro-1, .quadro-2, .quadro-3{
+    border-top: none;
+}
