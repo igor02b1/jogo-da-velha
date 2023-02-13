@@ -32,7 +32,14 @@ function jogar(id){
 function checkVencedor(turno) {
     const vencedor = combinacoes.some((comb) => {
         return comb.every((index) => {
-
+            return celulas[index].classList.contains(turno);
         })
     });
+    if(vencedor){
+        encerrarJogo(turno);
+    } else if (checarEmpate()){
+        encerrarJogo();
+    } else {
+        checkturno = !checkturno;
+    }
 }
