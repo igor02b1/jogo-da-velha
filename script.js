@@ -20,26 +20,52 @@ document.addEventListener("click", (event) => {
     }
 });
 
-function jogar(id){
-    const celula = document.getElementById(id);
-    turno = checkturno ? jogador_X : jogador_O;
-    celula.textContent = turno;
-    celula.classList.add(turno)
-    checkturno = !checkturno;
-    checarVencedor(turno);
+    function jogar(id){
+        const celula = document.getElementById(id);
+        turno = checkturno ? jogador_X : jogador_O;
+        celula.textContent = turno;
+        celula.classList.add(turno)
+        checarVencedor(turno);
+    }
+
+    function checarVencedor(turno) {
+        const vencedor = combinacoes.some((comb) => {
+            return comb.every((index) => {
+                return celulas[index].classList.contains(turno);
+            })
+        });
+
+        if(vencedor){
+            encerrarJogo(turno);
+        } else if (checarEmpate()){
+            encerrarJogo();
+        } else {
+            checkturno = !checkturno;
+        }
+    }
+
+    function checarEmpate(){
+        let x = 0;
+        let o = 0;
+        for (index in celulas){
+            if(!isNaN(index)){
+            if(celulas[index].classList.contains(jogador_X)){
+                x++;
+            }
+
+            if(celulas[index].classList.contains(jogador_O)){
+                o++;
+             }
+         }
+    }
+
+    return x + o === 9 ? true : false; 
 }
 
-function checkVencedor(turno) {
-    const vencedor = combinacoes.some((comb) => {
-        return comb.every((index) => {
-            return celulas[index].classList.contains(turno);
-        })
-    });
-    if(vencedor){
-        encerrarJogo(turno);
-    } else if (checarEmpate()){
-        encerrarJogo();
-    } else {
-        checkturno = !checkturno;
+    function encerrarJogo(vencedor = null){
+        if(vencedor) {
+            console.log("vencedor: " + vencedor);
+        } else {
+            console.log("Empate");
+        }
     }
-}
