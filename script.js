@@ -80,7 +80,7 @@ document.addEventListener("click", (event) => {
 
         let contador = 3;
         setInterval (() => {
-            h3.innerHTML = `reiniciado em ${contador--}`;
+            h3.innerHTML = `reiniciando em ${contador--}`;
         }, 1000);
 
         setTimeout(() => location.reload(), 4000);
